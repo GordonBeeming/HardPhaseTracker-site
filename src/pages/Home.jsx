@@ -5,6 +5,7 @@ const Home = () => {
   return (
     <div className="container">
       <header className="hero">
+        <img src="/hardphasetracker/logo.png" alt="HardPhase Tracker Logo" className="app-logo" />
         <h1>HardPhase Tracker</h1>
         <h2>Minimalist Fasting Tracker</h2>
         <p className="lead">Track your fasting journey with simplicity and precision.</p>
