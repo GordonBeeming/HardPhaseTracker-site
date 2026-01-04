@@ -3,9 +3,17 @@
   line-height: 1.5;
   font-weight: 400;
 
+  /* App Theme - Light Mode Defaults */
+  --bg-color: #F8F9FA;
+  --text-color: #1A1A1A;
+  --primary-color: #0063B2;
+  --accent-color: #46CBFF;
+  --card-bg: #FFFFFF;
+  --divider-color: #E9ECEF;
+
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,10 +21,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* App Theme - Dark Mode */
+    --bg-color: #1A1A1A;
+    --text-color: #E0E0E0;
+    --primary-color: #46CBFF;
+    --accent-color: #0063B2;
+    --card-bg: #2C2C2C;
+    --divider-color: #2C2C2C;
+  }
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .container {
@@ -45,13 +67,14 @@ body {
 
 .hero h2 {
   font-size: 2rem;
-  color: #888;
+  color: var(--primary-color);
   margin-top: 0;
 }
 
 .lead {
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  opacity: 0.9;
 }
 
 .btn {
@@ -60,16 +83,22 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.2s;
+  transition: opacity 0.2s;
 }
 
 .btn-primary {
-  background-color: #646cff;
-  color: white;
+  background-color: var(--primary-color);
+  color: white; /* Always white text on primary button */
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-primary {
+    color: #1A1A1A; /* Dark text on light blue primary in dark mode */
+  }
 }
 
 .btn-primary:hover {
-  background-color: #535bf2;
+  opacity: 0.9;
 }
 
 .features {
@@ -91,27 +120,39 @@ body {
 
 .feature-item {
   padding: 1.5rem;
-  background-color: #1a1a1a;
-  border-radius: 8px;
+  background-color: var(--card-bg);
+  border-radius: 16px; /* Matching app corner radius */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .feature-item h4 {
   margin-top: 0;
-  color: #646cff;
+  color: var(--primary-color);
 }
 
 .privacy-note {
   margin: 4rem 0;
   padding: 2rem;
-  background-color: #1a1a1a;
-  border-radius: 8px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 footer {
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid #333;
-  color: #888;
+  border-top: 1px solid var(--divider-color);
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .privacy-page {
@@ -120,17 +161,4 @@ footer {
 
 .privacy-page h1 {
   text-align: center;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  .feature-item, .privacy-note {
-    background-color: #f9f9f9;
-  }
-  footer {
-    border-top-color: #eee;
-  }
 }
