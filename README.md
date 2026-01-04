@@ -32,4 +32,6 @@ This is the marketing website for the HardPhase Tracker iOS/iPad app.
 
 ## Deployment
 
-The `dist` folder contains the production build ready for deployment to any static site host (GitHub Pages, Vercel, Netlify, etc.).
+The app is configured to be hosted at `https://gordonbeeming.com/hardphasetracker`.
+
+The `dist` folder contains the production build ready for deployment.
